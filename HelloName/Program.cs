@@ -1,7 +1,12 @@
+using HelloName.Conventions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Conventions.Add(new PashaConventions());
+});
 
 var app = builder.Build();
 
